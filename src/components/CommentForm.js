@@ -7,12 +7,9 @@ import {postNewComment} from '../actions'
 class CommentForm extends Component{
 
 	handleSubmit = (e) => {
+
         e.preventDefault();
-		const { history, comment, parentId, postNewComment} = this.props
-		console.log("im in CommentForm handleSubmit")
-		console.log("this.props: ", this.props)
-
-
+		const { history, parentId, postNewComment} = this.props
 
 
 		if (!this.author.value){
@@ -50,10 +47,8 @@ class CommentForm extends Component{
 
 	render(){
 
-		const { comment } = this.props
+		const { parentId } = this.props
 
-		const author = comment ? comment.author : ""
-		const body = comment ? comment.body : ""
 
 		return (
 			<div>
@@ -64,7 +59,7 @@ class CommentForm extends Component{
 		            <input
 		              name="author"
 		              type="text"
-		              defaultValue={author}
+
 		              ref={input => (this.author = input)}
 		            />
 
@@ -72,7 +67,7 @@ class CommentForm extends Component{
 		            <textarea
 		            	name="body"
 		            	type="text"
-		                defaultValue={body}
+
 		            	ref={input => (this.body = input)}
 		            />
 
@@ -88,9 +83,6 @@ class CommentForm extends Component{
 }
 
 function mapDispatchToProps(dispatch){
-	console.log("in CommentForm: mapDispatchToProps")
-	console.log("dispatch", dispatch)
-	console.log("postNewComment", postNewComment)
 	return {
 		postNewComment: (data) => dispatch(postNewComment(data))
 	}

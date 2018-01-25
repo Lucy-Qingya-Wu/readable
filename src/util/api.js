@@ -8,8 +8,92 @@ const headers = {
   'Accept': 'application/json',
   'Authorization': token
 }
+
+export const votePost = (id, option) => {
+  return fetch(`${api}/posts/${id}`, {
+            method: 'POST',
+            body: JSON.stringify({option}),
+            headers:{
+              ...headers,
+              'Content-Type': 'application/json'
+            }
+          })
+          .then(res => {
+            console.log("res", res)
+            return res.json();
+          })
+          .then(data=>{
+            console.log("im in api : votePost")
+            console.log("here is option", option)
+            console.log("here is data: ", data)
+            return data
+          })
+}
+
+export const updateComment = (id, updatedCommentdata) => {
+  return fetch(`${api}/comments/${id}`, {
+            method: 'PUT',
+            body: JSON.stringify(updatedCommentdata),
+            headers:{
+              ...headers,
+              'Content-Type': 'application/json'
+            }
+          })
+          .then(res => {
+            console.log("res", res)
+            return res.json();
+          })
+          .then(data=>{
+            console.log("im in api : updateComment")
+            console.log("here is updatedCommentdata", updatedCommentdata)
+            console.log("here is data: ", data)
+            return data
+          })
+}
+
+export const voteComment = (id, option) => {
+  return fetch(`${api}/comments/${id}`, {
+            method: 'POST',
+            body: JSON.stringify({option}),
+            headers:{
+              ...headers,
+              'Content-Type': 'application/json'
+            }
+          })
+          .then(res => {
+            console.log("res", res)
+            return res.json();
+          })
+          .then(data=>{
+            console.log("im in api : voteComment")
+            console.log("here is option", option)
+            console.log("here is data: ", data)
+            return data
+          })
+}
+export const updatePost = (id, updatedPostdata) => {
+  //console.log("in updatePost=====")
+  return fetch(`${api}/posts/${id}`, {
+            method: 'PUT',
+            body: JSON.stringify(updatedPostdata),
+            headers:{
+              ...headers,
+              'Content-Type': 'application/json'
+            }
+          })
+          .then(res => {
+            //console.log("res", res)
+            return res.json();
+          })
+          .then(data=>{
+            // console.log("im in api : updatePost")
+            // console.log("here is ori_data", updatedPostdata)
+            // console.log("here is data: ", data)
+            return data
+          })
+}
 export const deleteComment = (commentId) => {
-  console.log("in api deleteComment, at the very beggining")
+
   return fetch(`${api}/comments/${commentId}`, {
             method: 'DELETE',
             headers
@@ -18,23 +102,11 @@ export const deleteComment = (commentId) => {
             return res.json();
           })
 }
-
-export const deletePost = (postId) => {
-  console.log("in api deletePost, at the very beggining")
-  return fetch(`${api}/posts/${postId}`, {
-            method: 'DELETE',
-            headers
-          })
-          .then(res => {
-            return res.json();
-          })
-}
-
-export const postNewPost = (comment) => {
-  console.log("in api postNewPost, at the very beggining")
+export const postNewPost = (post) => {
+  console.log("in postNewPost=====")
   return  fetch(`${api}/posts`, {
             method: 'POST',
-            body: JSON.stringify(comment),
+            body: JSON.stringify(post),
             headers:{
               ...headers,
               'Content-Type': 'application/json'
@@ -50,8 +122,19 @@ export const postNewPost = (comment) => {
           })
 }
 
+export const deletePost = (postId) => {
+
+  return fetch(`${api}/posts/${postId}`, {
+            method: 'DELETE',
+            headers
+          })
+          .then(res => {
+            return res.json();
+          })
+}
+
 export const postNewComment = (comment) => {
-  console.log("in api postComment, at the very beggining")
+
   return  fetch(`${api}/comments`, {
             method: 'POST',
             body: JSON.stringify(comment),
@@ -64,9 +147,19 @@ export const postNewComment = (comment) => {
             return res.json();
           })
           .then(data=>{
-            console.log("im in api : postNewComment")
-            console.log("here is data: ", data)
+            console.log("original comment", comment)
+            console.log("new comment", data)
             return data
+          })
+}
+
+export const getAllPosts = () => {
+  return fetch(`${api}/posts`, {
+            method: 'GET',
+            headers,
+          })
+          .then(res => {
+            return res.json();
           })
 }
 
@@ -79,27 +172,9 @@ export const getAllCategories = () => {
             return res.json();
           })
           .then(data => {
-          	console.log("------ im in api.js - function getAllCategories------")
-          	console.log("response data ", data)
             return data.categories;
           });
 }
-
-export const getAllPosts = () => {
-  return fetch(`${api}/posts`, {
-            method: 'GET',
-            headers,
-          })
-          .then(res => {
-            return res.json();
-          })
-          .then(data => {
-            console.log("------ im in api.js - function getAllPosts------")
-            console.log("response data ", data)
-            return data
-          });
-}
-
 
 export const getPostComments = (id) => {
   return  fetch(`${api}/posts/${id}/comments`, {

@@ -1,4 +1,4 @@
-import { RECEIVED_CATEGORIES } from '../actions'
+import {RECEIVED_CATEGORIES} from '../actions'
 
 export default function categories(state = [], action) {
 
@@ -13,4 +13,3 @@ export default function categories(state = [], action) {
 	}
 
 }
-

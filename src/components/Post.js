@@ -3,35 +3,35 @@ import { connect } from 'react-redux'
 import {Link} from 'react-router-dom'
 import Moment from 'react-moment'
 
-import {deletePost} from '../actions'
+import {deletePost, votePost} from '../actions'
 
 class Post extends Component{
 
 
 	handleDeletePost = (postId) => {
 
-		console.log("im in handleDeletePost")
+	 	const {post, history, deletePost} = this.props
 
-		const {post, history, deletePost} = this.props
+	 	deletePost(postId)
 
-		deletePost(postId)
-
-
-		history.push("/")
+	 	history.push("/")
 
 	}
 
 	render(){
-		console.log("in Post, this.props: ",  this.props)
-		const {post} = this.props
+
+		const {post, votePost} = this.props
+
+		//console.log("Post: ", post)
 
         return (
         	<div key={post.id}>
+
         	    <Link to={{pathname : "/posts/" + post.id}}>
         	    	<p>{post.title}</p>
         	    </Link>
 
-	        	<p>id: {post.id}</p>
+
 	        	<p>category: {post.category}</p>
 	        	<p>voteScore: {post.voteScore}</p>
 
@@ -45,11 +45,13 @@ class Post extends Component{
         	    </Link>
 
 
+        	    <Link to={{pathname : "/edit/post/" + post.id}}>
+	        		<button type="button" >Edit</button>
+	        	</Link>
 
-	        	<button type="button" >Edit</button>
 	        	<button type="button" onClick={()=>this.handleDeletePost(post.id)} >Delete</button>
-	        	<button type="button" >VoteUp</button>
-	        	<button type="button" >VoteDown</button>
+	        	<button type="button" onClick={()=>votePost(post.id, "upVote")} >VoteUp</button>
+	        	<button type="button" onClick={()=>votePost(post.id, "downVote")}>VoteDown</button>
 
 	        	<hr align="left" width="50%"/>
 	        	<hr align="left" width="50%"/>
@@ -57,9 +59,12 @@ class Post extends Component{
 	}
 }
 
+
+
 const mapDispatchToProps = (dispatch) => {
 	return {
-		deletePost : (postId) => dispatch(deletePost(postId))
+		deletePost : (postId) => dispatch(deletePost(postId)),
+		votePost: (postId, option) => dispatch(votePost(postId, option))
 	}
 }
 
