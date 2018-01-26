@@ -53,29 +53,35 @@ class CommentForm extends Component{
 		return (
 			<div>
 
-				<form onSubmit={this.handleSubmit}>
+	          <div className="card my-4">
+	            <h5 className="card-header">Leave a Comment:</h5>
+	            <div className="card-body">
 
-					<div>author</div>
-		            <input
-		              name="author"
-		              type="text"
 
-		              ref={input => (this.author = input)}
-		            />
+					<form onSubmit={this.handleSubmit}>
+						<div className="form-group ">
+							<div>Author </div>
+				            <input
+				              name="author"
+				              type="text"
+				              className="form-control form-control-sm"
+				              ref={input => (this.author = input)}
+				            />
+				        </div>
+				        <div className="form-group">
+				            <div>Body</div>
+				            <textarea rows="3"
+				            	name="body"
+				            	type="text"
+				            	className="form-control"
+				            	ref={input => (this.body = input)}
+				            />
+				        </div>
+			            <button type="submit" className="btn btn-primary btn-sm">Submit</button>
 
-		            <div>body</div>
-		            <textarea
-		            	name="body"
-		            	type="text"
-
-		            	ref={input => (this.body = input)}
-		            />
-
-		            <div>
-		            	<input type="submit" />
-		            </div>
-
-				</form>
+					</form>
+				</div>
+			  </div>
 			</div>
 		)
 	}

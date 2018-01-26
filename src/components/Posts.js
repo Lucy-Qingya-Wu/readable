@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import {Link} from 'react-router-dom'
 import Post from './Post'
 import sortby from 'sort-by'
+import NavigationBar from './NavigationBar'
 class Posts extends Component{
 	constructor(props){
 		super(props)
@@ -49,49 +50,73 @@ class Posts extends Component{
 
 		return (
 			<div>
+				<NavigationBar />
 
-				<Link to={{pathname : "/"}}>
-					<h1>
-						Readable
-					</h1>
-				</Link>
+			    <div className="container">
 
-			<div>
-
-				<h1>Here are the categories:</h1>
-
-				<ul>
-
-					<Link to={{pathname : "/"}}>
-						<li key="all">
-							all
-						</li>
-					</Link>
-
-					{allCategories}
-
-				</ul>
-
-			</div>
-
-			<div>
-			    <h1>Here are the posts:</h1>
-
-			    <div>
-
-			    	<Link to={{pathname: "/add/post"}}>
-			    		<button type="button" >add new post</button>
-			    	</Link>
+			      <div className="row">
 
 
-				    <button type="button" onClick={()=>this.setSort("voteScore")}>sort by voteScore</button>
-				    <button type="button" onClick={()=>this.setSort("timestamp")}>sort by timestamp</button>
-			    </div>
+			        <div className="col-md-8">
 
-				{allPosts}
 
-			</div>
+			        	<Link to={{pathname: "/add/post"}}>
+					    	<button type="button" className="btn btn-primary btn-sm main-option">
 
+						    		add new post
+
+					    	</button>
+
+					    </Link>
+
+					    <button type="button" className="btn btn-primary btn-sm main-option" onClick={()=>this.setSort("voteScore")}>sort by voteScore</button>
+					    <button type="button" className="btn btn-primary btn-sm main-option" onClick={()=>this.setSort("timestamp")}>sort by timestamp</button>
+
+
+
+						{allPosts}
+
+					</div>
+
+					<div className="col-md-4">
+
+
+
+			          <div className="card my-4">
+			            <h5 className="card-header">Categories</h5>
+			            <div className="card-body">
+			              <div className="row">
+			                <div className="col-lg-6">
+			                  <ul className="list-unstyled mb-0">
+
+									<li key="all">
+										<Link to={{pathname : "/"}}>
+											all
+										</Link>
+									</li>
+
+
+									{allCategories}
+			                  </ul>
+			                </div>
+			              </div>
+			            </div>
+			          </div>
+
+
+
+
+
+
+
+
+
+
+					</div>
+		      </div>
+
+
+		    </div>
 			</div>
 		)
 	}

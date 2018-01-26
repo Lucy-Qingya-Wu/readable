@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import Moment from 'react-moment'
 import {connect} from 'react-redux'
-
+import {Link} from 'react-router-dom'
 //import CommentForm from './CommentForm'
 
 import {deleteComment, updateComment, voteComment} from '../actions'
@@ -57,8 +57,10 @@ class Comment extends Component{
 
 				<form onSubmit={this.handleEditComment}>
 
-		            <div>body</div>
+		            <div>Edit Comment</div>
+
 		            <textarea
+
 		            	name="body"
 		            	type="text"
 		            	defaultValue={comment.body}
@@ -66,31 +68,36 @@ class Comment extends Component{
 		            />
 
 		            <div>
-		            	<input type="submit" />
+
+			            <button type="submit" className="btn btn-primary btn-sm comment-form-btn">Submit</button>
+
+			            <button type="button" className="btn btn-primary btn-sm comment-form-btn" onClick={()=>this.setState({editComment:false})}>Cancel</button>
+
 		            </div>
 
 				</form>
+
 			</div>)
 		}
 		else{
 			return (
-			<div>
-
-				<p>comment: {comment.body}</p>
-				<p>score: {comment.voteScore}</p>
-				<p>submitted by {comment.author} @ <Moment format="YYYY-MM-DD HH:mm">{comment.timestamp}</Moment></p>
 
 
-	        	<button type="button" onClick={()=>this.setState({editComment:true})}>Edit</button>
-	        	<button type="button" onClick={()=>this.handleDeleteComment(comment.id)}>Delete</button>
 
-	        	<button type="button" onClick={()=>voteComment(comment.id, "upVote")}>VoteUp</button>
-	        	<button type="button" onClick={()=>voteComment(comment.id, "downVote")}>VoteDown</button>
+				<div className="media-body ">
+				    <p className="comment-author">{comment.author}</p><p className="comment-submit-info">submitted @ <Moment format="YYYY-MM-DD HH:mm">{comment.timestamp}</Moment> ({comment.voteScore} points)</p>
+					<p className="comment-body">{comment.body}</p>
 
-				<br/>
-				<br/>
 
-			</div>)
+		        	<button type="button" className="btn btn-link first-btn" onClick={()=>this.setState({editComment:true})}>edit</button>
+		        	<button type="button" className="btn btn-link option-btn" onClick={()=>this.handleDeleteComment(comment.id)}>delete</button>
+
+		        	<button type="button" className="btn btn-link option-btn" onClick={()=>voteComment(comment.id, "upVote")}>voteUp</button>
+		        	<button type="button" className="btn btn-link option-btn" onClick={()=>voteComment(comment.id, "downVote")}>voteDown</button>
+
+				</div>
+
+			)
 		}
 	}
 }

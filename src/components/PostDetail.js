@@ -4,7 +4,7 @@ import {connect} from 'react-redux'
 import Post from './Post'
 import Comment from './Comment'
 import CommentForm from './CommentForm'
-
+import NavigationBar from './NavigationBar'
 class PostDetail extends Component{
 
 	render(){
@@ -21,34 +21,40 @@ class PostDetail extends Component{
 
 		return (
 			<div>
-				<Link to={{pathname : "/"}}>
-					<h1>
-						Readable
-					</h1>
-				</Link>
+				<NavigationBar />
 
 
-				{post &&
-						(
+			    <div className="container">
 
-							<div>
-								<h1>PostDetail</h1>
+			      <div className="row">
 
-								<Post key={post.id}  history={history} post={post} />
-
-								<h1>Comments</h1>
-
-								<CommentForm parentId={post.id} history={history}  />
-
-								{post.comments.map(c=><Comment history={history} key={c.id} comment={c} />)}
-
-							</div>
-						)
-
-				}
+			        <div className="col-lg-8">
 
 
-				{!post && (<p>Sorry, this post does not exist.</p>)}
+						{post &&
+								(
+
+									<div>
+
+
+										<Post key={post.id}  history={history} post={post} />
+
+
+
+										<CommentForm parentId={post.id} history={history}  />
+
+										{post.comments.map(c=><Comment history={history} key={c.id} comment={c} />)}
+
+									</div>
+								)
+
+						}
+
+
+						{!post && (<p>Sorry, this post does not exist.</p>)}
+					</div>
+				  </div>
+				</div>
 
 			</div>
 

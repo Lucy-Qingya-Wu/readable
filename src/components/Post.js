@@ -25,36 +25,39 @@ class Post extends Component{
 		//console.log("Post: ", post)
 
         return (
-        	<div key={post.id}>
-
-        	    <Link to={{pathname : "/posts/" + post.id}}>
-        	    	<p>{post.title}</p>
-        	    </Link>
-
-
-	        	<p>category: {post.category}</p>
-	        	<p>voteScore: {post.voteScore}</p>
-
-	        	<p>body: {post.body}</p>
-	        	<p>submitted by {post.author} @ <Moment format="YYYY-MM-DD HH:mm">{post.timestamp}</Moment></p>
+        	<div key={post.id} className="card mb-4 post-div">
+        		<div className="card-body">
+	        	    <Link to={{pathname : "/posts/" + post.id}}>
+	        	    	<h4 className="card-title">{post.title}</h4>
+	        	    </Link>
 
 
 
-        	    <Link to={{pathname : "/posts/comments/" + post.id}}>
-        	    	<button type='button'>{post.commentCount} comments</button>
-        	    </Link>
+
+		        	<p className="card-text">{post.body}</p>
 
 
-        	    <Link to={{pathname : "/edit/post/" + post.id}}>
-	        		<button type="button" >Edit</button>
-	        	</Link>
+		        </div>
+		        <div className="card-footer text-muted">
+		            <div className="post-submit-info">submitted by {post.author} @ <Moment format="YYYY-MM-DD HH:mm">{post.timestamp}</Moment> ({post.voteScore} points) ({post.category})</div>
 
-	        	<button type="button" onClick={()=>this.handleDeletePost(post.id)} >Delete</button>
-	        	<button type="button" onClick={()=>votePost(post.id, "upVote")} >VoteUp</button>
-	        	<button type="button" onClick={()=>votePost(post.id, "downVote")}>VoteDown</button>
+		            <button type="button" className="btn btn-link first-btn" >
+		        	    <Link className="link" to={{pathname : "/posts/comments/" + post.id}}>
+		        	    	{post.commentCount} comments
+		        	    </Link>
+	        	    </button>
 
-	        	<hr align="left" width="50%"/>
-	        	<hr align="left" width="50%"/>
+	        	    <button type="button" className="btn btn-link option-btn">
+		        	    <Link className="link" to={{pathname : "/edit/post/" + post.id}}>
+			        		edit
+			        	</Link>
+		        	</button>
+
+		        	<button type="button" className="btn btn-link option-btn" onClick={()=>this.handleDeletePost(post.id)} >delete</button>
+		        	<button type="button" className="btn btn-link option-btn" onClick={()=>votePost(post.id, "upVote")} >voteUp</button>
+		        	<button type="button" className="btn btn-link option-btn" onClick={()=>votePost(post.id, "downVote")}>voteDown</button>
+
+	        	</div>
         	</div>)
 	}
 }

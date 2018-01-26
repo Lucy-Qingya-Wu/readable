@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import {Link} from 'react-router-dom'
 import uuid from 'uuid'
 import {connect} from 'react-redux'
-
+import NavigationBar from './NavigationBar'
 import {postNewPost, updatePost} from '../actions'
 
 
@@ -96,62 +96,87 @@ class PostForm extends Component{
 
 
 		return (
+
 			<div>
-				<h1>{title}</h1>
+				<NavigationBar />
 
-				<form onSubmit={this.handleSubmit}>
+			    <div className="container">
+
+			      <div className="row">
 
 
-					<div>title</div>
-					<input
-		              name="title"
-		              defaultValue={defaultTitle}
-		              type="text"
-		              ref={input => (this.title = input)}
-		            />
+			        <div className="col-md-8">
 
-		            {!post &&
-			            <div>
-				            <div>author</div>
-				            <input
-				              name="author"
-				              type="text"
-				              ref={input => (this.author = input)}
-				            />
-			            </div>
-		        	}
+					    <h2 className="post-form-title">{title}</h2>
+						<div className="card my-4">
 
-		            <div>body</div>
-		            <textarea
-		            	name="body"
-		            	type="text"
-		            	defaultValue={defaultBody}
-		            	ref={input => (this.body = input)}
-		            />
+							<form onSubmit={this.handleSubmit} className="form-horizontal">
 
-		            <div></div>
+								<div className="form-group">
+									<div  className="post-form-label">Title:</div>
 
-					{!post && <select
-						type="select"
+									<input
 
-						ref={input=> (this.category = input)}
-					>
-						<option value="">Please choose one category</option>
-						{categories && categories.map(
-							category=>(<option key={category} value={category}>{category}</option>)
-						)}
-					</select>}
+						              name="title"
+						              defaultValue={defaultTitle}
+						              type="text"
+						              className="form-control post-input"
+						              ref={input => (this.title = input)}
+						            />
+						        </div>
 
-		            <div>
-		            	<input type="submit" />
-		            </div>
+					            {!post &&
+						            <div className="form-group">
+							            <div className="post-form-label">Author:</div>
+							            <input
+							              className="form-control post-input"
+							              name="author"
+							              type="text"
+							              ref={input => (this.author = input)}
+							            />
+						            </div>
+					        	}
 
-				</form>
+					            <div className="form-group">
+					                <div className="post-form-label">Body:</div>
+						            <textarea
+						                className="form-control post-input"
+						                rows="3"
+						            	name="body"
+						            	type="text"
+						            	defaultValue={defaultBody}
+						            	ref={input => (this.body = input)}
+						            />
+					            </div>
 
-				<Link to={{pathname: '/'}}>
-					<button type="button" >Cancel</button>
-				</Link>
 
+
+								{!post && <div className="form-group">
+									<select
+										type="select"
+										className="form-control post-input"
+										ref={input=> (this.category = input)}
+									>
+										<option value="">Please choose one category</option>
+										{categories && categories.map(
+											category=>(<option key={category} value={category}>{category}</option>)
+										)}
+									</select>
+								</div>}
+								<div className="post-form-option">
+					            <button type="submit" className="btn btn-primary btn-sm post-form-btn">Submit</button>
+
+								<Link to={{pathname: '/'}}>
+									<button type="button" className="btn btn-primary btn-sm post-form-btn">Cancel</button>
+								</Link>
+								</div>
+							</form>
+
+
+						</div>
+					  </div>
+				   </div>
+				</div>
 			</div>)
 	}
 }

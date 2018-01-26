@@ -1,0 +1,89 @@
+.main-option {
+
+	margin: 10px;
+	margin-bottom: 0px;
+}
+
+
+.first-btn {
+	padding-top:0px;
+	padding-left: 0px;
+	padding-right: 0px;
+	color: grey;
+	font-size: small;
+}
+.title-link{
+	color: white;
+
+}
+
+.post-form-btn{
+	float: left;
+	margin-right: 10px;
+	margin-bottom: 20px;
+}
+
+.post-form-option{
+	margin-left: 10px;
+}
+.post-div{
+	margin-top: 10px
+}
+.post-form-label{
+	font-weight: bold;
+	margin-left:10px;
+	margin-top:10px;
+}
+
+.post-form-title{
+	margin: 10px;
+	color: #007bff;
+	margin-left: 0px;
+}
+.option-btn {
+	padding-top:0px;
+	padding-right: 0px;
+	color: grey;
+	font-size: small;
+}
+.link{
+	color: grey
+
+}
+.comment-form-btn{
+	margin-right:10px;
+}
+
+.comment-form-div{
+	margin: 0px
+}
+
+.post-input{
+	width: 95%;
+	margin-left:10px;
+}
+
+.comment-submit-info {
+	display: inline;
+	font-size: x-small;
+	color: grey;
+	margin-left: 10px
+
+}
+
+.comment-body {
+	margin-bottom: 0px;
+}
+
+.comment-author {
+	width: max-content;
+	margin-bottom: 0px;
+	float:left;
+	color: #007bff;
+
+}
+
+.post-submit-info {
+	font-size: small;
+
+}
