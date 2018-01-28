@@ -36,7 +36,7 @@ This repo only contains the front-end portion of this project. You will need to 
 	```
 	https://github.com/Lucy-Qingya-Wu/readable.git
 
-	cd Readable
+	cd readable
 
 	npm install
 
