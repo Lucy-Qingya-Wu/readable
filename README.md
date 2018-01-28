@@ -17,42 +17,32 @@ This repo only contains the front-end portion of this project. You will need to 
 
 * Install and run the back-end API Server:
 
-	To clone the repo:
+
 	```
-	git clone https://github.com/udacity/reactnd-project-readable-starter.git
+	$ git clone https://github.com/udacity/reactnd-project-readable-starter.git
+
+	$ cd reactnd-project-readable-starter/api-server
+
+	$ npm install
+
+	$ npm start
+
 	```
 
-	To navigate to the API server directory:
-	```
-	cd ~/reactnd-project-readable-starter/api-server
-	```
 
-	To install required node modules:
-	```
-	npm install
-	```
+* Install and run the front-end in another terminal window:
 
-	To run the API server:
-	```
-	npm start
-	```
 
-* Install and run the front-end:
-
-	To clone the repo:
 	```
 	https://github.com/Lucy-Qingya-Wu/readable.git
-	```
 
-	To install required node modules:
-	```
+	cd Readable
+
 	npm install
-	```
 
-	To run the front end:
-	```
 	npm start
 	```
+
 
 
 
