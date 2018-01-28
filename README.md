@@ -49,6 +49,8 @@ This repo only contains the front-end portion of this project. You will need to 
 
 ![post_detail](https://user-images.githubusercontent.com/12717064/35478291-16aad96c-03a7-11e8-91d6-c88c76edd1a9.png)
 
+![edit_comment](https://user-images.githubusercontent.com/12717064/35478331-0f38eb1e-03a8-11e8-99fc-8b679d7371d0.png)
+
 ![add_new_post](https://user-images.githubusercontent.com/12717064/35478300-34d8ca0c-03a7-11e8-8da2-41495d6f56a8.png)
 
 
