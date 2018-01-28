@@ -36,7 +36,7 @@ class PostForm extends Component{
 			console.log("in postForm changePost", updatePost)
 			updatePost(post.id, postEditedInfo)
 
-			history.push(`/posts/${post.id}`)
+			history.push(`/${post.category}/${post.id}`)
 		}
 		else{
 			console.log("in postform handleSubmit: do not post")
@@ -189,10 +189,5 @@ function mapStateToProps(state, ownProps){
 	}
 }
 
-function mapDispatchToProps(dispatch){
-	return {
-		postNewPost: (data) => dispatch(postNewPost(data)),
-		updatePost: (postId, postEditedInfo) => dispatch(updatePost(postId, postEditedInfo))
-	}
-}
-export default connect(mapStateToProps, mapDispatchToProps)(PostForm)
+
+export default connect(mapStateToProps, {postNewPost, updatePost})(PostForm)

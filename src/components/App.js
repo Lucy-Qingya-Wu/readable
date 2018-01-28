@@ -14,9 +14,15 @@ export default class App extends Component {
 	          (props)=><Posts />
 	        } />
 
-          <Route exact path="/:category/posts" render={
+          <Route exact path="/:category" render={
             (props)=><Posts {...props} category={props.match.params.category}/>
           } />
+
+          <Route exact path="/:category/:postId"
+            render={
+              (props)=><PostDetail {...props} postId={props.match.params.postId} />
+            }
+          />
 
           <Route exact path="/posts/comments/:postId"
             render={
@@ -24,13 +30,9 @@ export default class App extends Component {
             }
           />
 
-          <Route exact path="/posts/:postId"
-            render={
-              (props)=><PostDetail {...props} postId={props.match.params.postId} />
-            }
-          />
 
-          <Route exact path="/add/post"
+
+          <Route exact path="/add/post/new"
             render={
               (props)=><PostForm {...props} />
             }

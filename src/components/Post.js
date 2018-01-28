@@ -27,7 +27,7 @@ class Post extends Component{
         return (
         	<div key={post.id} className="card mb-4 post-div">
         		<div className="card-body">
-	        	    <Link to={{pathname : "/posts/" + post.id}}>
+	        	    <Link to={{pathname : "/" + post.category +  "/" + post.id }}>
 	        	    	<h4 className="card-title">{post.title}</h4>
 	        	    </Link>
 
@@ -64,12 +64,7 @@ class Post extends Component{
 
 
 
-const mapDispatchToProps = (dispatch) => {
-	return {
-		deletePost : (postId) => dispatch(deletePost(postId)),
-		votePost: (postId, option) => dispatch(votePost(postId, option))
-	}
-}
 
 
-export default connect(null, mapDispatchToProps)(Post)
+
+export default connect(null, {deletePost, votePost})(Post)

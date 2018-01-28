@@ -7,7 +7,7 @@ import {
 	RECEIVED_UPDATED_POST,
 	RECEIVED_UPDATED_POST_SCORE
 
-} from '../actions'
+} from '../actions/types'
 
 
 //[

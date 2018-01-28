@@ -9,7 +9,7 @@ class CommentForm extends Component{
 	handleSubmit = (e) => {
 
         e.preventDefault();
-		const { history, parentId, postNewComment} = this.props
+		const { history, parentId, postNewComment, postCategory} = this.props
 
 
 		if (!this.author.value){
@@ -40,7 +40,7 @@ class CommentForm extends Component{
 		this.body.value = ""
 
 
-		history.push(`/posts/${parentId}`)
+		history.push(`/${postCategory}/${parentId}`)
 
 
 	}
@@ -88,10 +88,6 @@ class CommentForm extends Component{
 
 }
 
-function mapDispatchToProps(dispatch){
-	return {
-		postNewComment: (data) => dispatch(postNewComment(data))
-	}
-}
 
-export default connect(null, mapDispatchToProps)(CommentForm)
+
+export default connect(null, {postNewComment})(CommentForm)

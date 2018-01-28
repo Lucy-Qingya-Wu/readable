@@ -41,9 +41,9 @@ class PostDetail extends Component{
 
 
 
-										<CommentForm parentId={post.id} history={history}  />
+										<CommentForm postCategory={post.category} parentId={post.id} history={history}  />
 
-										{post.comments.map(c=><Comment history={history} key={c.id} comment={c} />)}
+										{post.comments.map(c=><Comment postCategory={post.category} history={history} key={c.id} comment={c} />)}
 
 									</div>
 								)
@@ -51,7 +51,12 @@ class PostDetail extends Component{
 						}
 
 
-						{!post && (<p>Sorry, this post does not exist.</p>)}
+						{!post && (<div>
+										<h1>404</h1>
+										<p>The page you are looking for does not exist.</p>
+										<Link to={{pathname : "/"}} > Go to main page </Link>
+								   </div>
+								  )}
 					</div>
 				  </div>
 				</div>

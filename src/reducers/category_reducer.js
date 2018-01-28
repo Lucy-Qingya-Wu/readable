@@ -1,4 +1,4 @@
-import {RECEIVED_CATEGORIES} from '../actions'
+import {RECEIVED_CATEGORIES} from '../actions/types'
 
 export default function categories(state = [], action) {
 

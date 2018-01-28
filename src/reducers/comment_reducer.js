@@ -4,7 +4,7 @@ import {
 	RECEIVED_DELETED_POST,
 	RECEIVED_DELETED_COMMENT,
 	RECEIVED_UPDATED_COMMENT
-} from '../actions'
+} from '../actions/types'
 
 //{
 //

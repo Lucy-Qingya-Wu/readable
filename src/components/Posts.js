@@ -23,7 +23,7 @@ class Posts extends Component{
 		const {posts, categories, history} = this.props
 
         const allCategories = categories.length > 0 ? categories.map((category)=>
-        	<li key={category}><Link to={{pathname : `/${category}/posts`}}>{category}</Link></li>
+        	<li key={category}><Link to={{pathname : `/${category}`}}>{category}</Link></li>
         ) : null
 
 
@@ -60,7 +60,7 @@ class Posts extends Component{
 			        <div className="col-md-8">
 
 
-			        	<Link to={{pathname: "/add/post"}}>
+			        	<Link to={{pathname: "/add/post/new"}}>
 					    	<button type="button" className="btn btn-primary btn-sm main-option">
 
 						    		add new post
@@ -102,15 +102,6 @@ class Posts extends Component{
 			              </div>
 			            </div>
 			          </div>
-
-
-
-
-
-
-
-
-
 
 					</div>
 		      </div>

@@ -17,16 +17,16 @@ class Comment extends Component{
 
 	handleDeleteComment = (commentId) => {
 		console.log("im in handleDeleteComment")
-		const {comment, history, deleteComment} = this.props
+		const {comment, history, deleteComment, postCategory} = this.props
 		console.log("commentId: ", commentId)
 		deleteComment(commentId)
-		history.push(`/posts/${comment.parentId}`)
+		history.push(`/${postCategory}/${comment.parentId}`)
 
 	}
 
 	handleEditComment = (e) => {
 		e.preventDefault();
-		const {history, updateComment, comment} = this.props
+		const {history, updateComment, comment, postCategory} = this.props
 
 		if (!this.body.value){
 			alert("please fill in comment body")
@@ -45,7 +45,7 @@ class Comment extends Component{
 		updateComment(comment.id, updatedCommentInfo)
 		this.setState({editComment:false})
 
-		history.push(`/posts/${comment.parentId}`)
+		history.push(`/${postCategory}/${comment.parentId}`)
 
 	}
 	render(){
@@ -104,11 +104,5 @@ class Comment extends Component{
 
 
 
-const mapDispatchToProps = (dispatch) => {
-	return {
-		deleteComment : (commentId) => dispatch(deleteComment(commentId)),
-		updateComment : (commentId, updatedCommentInfo) => dispatch(updateComment(commentId, updatedCommentInfo)),
-		voteComment : (commentId, option) => dispatch(voteComment(commentId, option))
-	}
-}
-export default connect(null, mapDispatchToProps)(Comment)
+
+export default connect(null, {deleteComment, updateComment, voteComment})(Comment)
