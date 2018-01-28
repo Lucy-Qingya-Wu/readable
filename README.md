@@ -16,8 +16,7 @@ npm is needed. If you have Node installed, then you should have npm. Otherwise, 
 This repo only contains the front-end portion of this project. You will need to download the back-end API server code in order to interact with the front end. More info about the API server is [here](https://github.com/udacity/reactnd-project-readable-starter/blob/master/README.md).
 
 
-* Install and run the back-end API Server:
-
+* Install and run the back-end API server
 
 	```
 	$ git clone https://github.com/udacity/reactnd-project-readable-starter.git
@@ -29,10 +28,9 @@ This repo only contains the front-end portion of this project. You will need to 
 	$ npm start
 
 	```
+* Check [localhost:3001](http://localhost:3001/) in your browser
 
-
-* Install and run the front-end in another terminal window:
-
+* In another terminal window, install and run the front-end
 
 	```
 	$ git clone https://github.com/Lucy-Qingya-Wu/readable.git
@@ -43,6 +41,9 @@ This repo only contains the front-end portion of this project. You will need to 
 
 	$ npm start
 	```
+
+* Check [localhost:3000](http://localhost:3000/) in your browser
+
 ### Demo
 
 ![main_page](https://user-images.githubusercontent.com/12717064/35478281-fa17d0a2-03a6-11e8-8560-061f42c2a3af.png)
