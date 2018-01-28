@@ -5,6 +5,7 @@ Readable is a forum web application written in React and Redux. Users will be ab
 ### Table of Contents
 * [Prerequisites](#prerequisites)
 * [Installing](#installing)
+* [Demo](#demo)
 
 ### Prerequisites
 
@@ -42,6 +43,17 @@ This repo only contains the front-end portion of this project. You will need to 
 
 	npm start
 	```
+### Demo
+
+![main_page](https://user-images.githubusercontent.com/12717064/35478281-fa17d0a2-03a6-11e8-8560-061f42c2a3af.png)
+
+![post_detail](https://user-images.githubusercontent.com/12717064/35478291-16aad96c-03a7-11e8-91d6-c88c76edd1a9.png)
+
+![add_new_post](https://user-images.githubusercontent.com/12717064/35478300-34d8ca0c-03a7-11e8-8da2-41495d6f56a8.png)
+
+
+
+
 
 
 
