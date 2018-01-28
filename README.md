@@ -8,11 +8,14 @@ Readable is a forum web application written in React and Redux. Users will be ab
 
 ### Prerequisites
 
-npm is needed. If you have Node installed, then you should have npm. Otherwise, install [Node](https://nodejs.org/en/).  
+npm is needed. If you have Node installed, then you should have npm. Otherwise, install [Node](https://nodejs.org/en/).
 
 ### Installing
 
-API Server: You can download the server code from [here](https://github.com/udacity/reactnd-project-readable-starter).You can find the API documentation for the server [here](https://github.com/udacity/reactnd-project-readable-starter/blob/master/README.md).
+This repo only contains the front-end portion of this project. You will need to download the back-end API server code in order to interact with the front end. More info about the API server is [here](https://github.com/udacity/reactnd-project-readable-starter/blob/master/README.md).
+
+
+Install and run the back-end API Server:
 
 To clone the repo:
 ```
@@ -34,13 +37,23 @@ To run the API server:
 npm start
 ```
 
-Client Side: You can download this repo.
-To run the client side:
+Install and run the front-end:
+
+To clone the repo:
+```
+https://github.com/Lucy-Qingya-Wu/readable.git
+```
+
+To install required node modules:
 ```
 npm install
 ```
+
+To run the front end:
 ```
 npm start
 ```
+
+
 
 
